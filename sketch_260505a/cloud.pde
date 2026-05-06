@@ -7,7 +7,7 @@ class cloud {
     cloudX = random(0, 800);
     cloudY = random(0, 400);
     cloudS = random(0.3, 1.5);
-    cloudT = random(200, 225);
+    cloudT = random(150, 200);
   }
 
   void show() {
@@ -25,7 +25,7 @@ class cloud {
   }
 
   void act() {
-    cloudX = cloudX + random(1, 5);
+    cloudX = cloudX + random(1, 3);
     if (cloudX > 1100) {
       cloudX = -100;
       cloudY = random(0, 200);
