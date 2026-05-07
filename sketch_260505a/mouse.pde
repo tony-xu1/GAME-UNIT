@@ -1,10 +1,14 @@
 void mouseReleased() {
   if (mode == INTRO) {
     introClicks();
-  }else if (mode == LEVELS){
+  } else if (mode == LEVELS) {
     levelsClicks();
-  } else if (mode == GAME) {
-    gameClicks();
+  } else if (mode == DEATHEGG) {
+    deathEggClicks();
+  } else if (mode == WESTOPOLIS) {
+    westopolisClicks();
+  } else if (mode == ARK) {
+    arkClicks();
   } else if (mode == PAUSE) {
     pauseClicks();
   } else if (mode == GAMEOVER) {

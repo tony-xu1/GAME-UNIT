@@ -1,0 +1,7 @@
+void westopolis() {
+
+}
+
+void westopolisClicks(){
+  
+}

@@ -1,0 +1,7 @@
+void deathEgg() {
+
+}
+
+void deathEggClicks(){
+  
+}
