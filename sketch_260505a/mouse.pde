@@ -13,6 +13,8 @@ void mouseReleased() {
     pauseClicks();
   } else if (mode == GAMEOVER) {
     gameoverClicks();
+  } else if (mode ==WIN) {
+    winClicks();
   } else {
     println ("Error : Mode =" + mode);
   }

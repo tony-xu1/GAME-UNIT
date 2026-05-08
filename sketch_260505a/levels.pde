@@ -72,4 +72,5 @@ void levelsClicks() {
   } else if (mouseX > 700 && mouseX < 850 && mouseY > 400 && mouseY < 550 || mouseX > 640 && mouseX < 910 && mouseY > 565 && mouseY < 595) {
     mode = ARK;
   }
+  noStroke();
 }

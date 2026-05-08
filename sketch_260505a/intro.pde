@@ -15,7 +15,6 @@ void intro() {
   fill(255, 255, 255, 100);
   rect(0, 0, 1000, 1000);
 
-  textAlign(CENTER, CENTER);
   sega = createFont ("SEGA.TTF", 100);
   textFont (sega);
   fill(0);
