@@ -51,4 +51,8 @@ void introClicks() {
   if (mouseX > 390 && mouseX < 610 && mouseY > 570 && mouseY < 630) {
     mode = LEVELS;
   }
+  
+   if (mouseX > 350 && mouseX < 650 && mouseY > 670 && mouseY < 730) {
+    mode = OPTIONS;
+  } 
 }

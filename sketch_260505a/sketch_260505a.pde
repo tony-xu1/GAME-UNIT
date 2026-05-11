@@ -9,6 +9,12 @@ final int DEATHEGG = 4;
 final int WESTOPOLIS = 5;
 final int ARK = 6;
 final int WIN = 7;
+final int OPTIONS = 8;
+
+boolean fin;
+boolean deathegg;
+boolean Westopolis;
+boolean Ark;
 
 //texture---------------------------------
 
@@ -22,12 +28,14 @@ PImage space;
 PImage egg;
 PFont arcade;
 PImage sadSonic;
+PImage happySonic;
+color pause, Pause;
 //target----------------------------------
 
 float x, y, d;
 float vx, vy;
 
-int score, lives;
+int score, lives, highScore;
 
 cloud[] myCloud;
 int n = 10;
@@ -57,9 +65,12 @@ void setup() {
 
   egg = loadImage("egg.png");
   egg.resize(220, 220);
-  
+
   sadSonic = loadImage("sadSonic.png");
   sadSonic.resize(85, 120);
+
+  happySonic = loadImage("happySonic.png");
+  happySonic.resize(117, 120);
 
   size(1000, 1000);
   mode = INTRO;
@@ -79,6 +90,12 @@ void setup() {
 
   score = 0;
   lives = 5;
+  highScore = 0;
+
+  fin = false;
+  deathegg = true;
+  Westopolis = false;
+  Ark = false;
 }
 
 
@@ -99,6 +116,8 @@ void draw() {
     gameover();
   } else if (mode ==WIN) {
     win();
+  } else if (mode == OPTIONS) {
+    options();
   } else {
     println ("Error : Mode =" + mode);
   }

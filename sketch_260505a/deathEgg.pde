@@ -1,9 +1,18 @@
 void deathEgg() {
+
+
   image(space, -300, 0);
   fill(#000000, 120);
   rect(0, 0, 1000, 1000);
 
+  fill(Pause);
+  stroke(pause);
+  square(50, 50, 70);
+  line(75, 70, 75, 95);
+  line(95, 70, 95, 95);
+
   fill(#ffffff, 0);
+  noStroke();
   circle(x, y, d);
   image(egg, x - 105, y - 110);
 
@@ -24,6 +33,14 @@ void deathEgg() {
   if (y < d/2 || y > height - d/2) {
     vy = -1 * vy;
   }
+
+  if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
+    pause = 255;
+    Pause = 0;
+  } else {
+    pause = 0;
+    Pause = 255;
+  }
 }
 
 void deathEggClicks() {
@@ -31,13 +48,26 @@ void deathEggClicks() {
     score = score + 1;
     vx = 1.05 * vx;
     vy = 1.05 * vy;
+  } else  if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
+    mode = PAUSE;
   } else {
     lives = lives - 1;
   }
   if (lives < 0) {
     mode = GAMEOVER;
+    score = 0;
+    lives = 5;
   }
   if (score > 25) {
     mode = WIN;
+    fin = false;
+    deathegg = false;
+    Westopolis = true;
+    Ark = false;
+    score = 0;
+    lives = 5;
+  }
+  if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
+    mode = PAUSE;
   }
 }

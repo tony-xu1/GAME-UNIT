@@ -1,6 +1,12 @@
+color next = 255;
+color leave = 255;
+
 void win() {
   fill(#D8B609, 10);
   rect(0, 0, 1000, 1000);
+
+  image(happySonic, 430, 450);
+
 
   textFont(arcade);
   fill(255);
@@ -9,12 +15,38 @@ void win() {
 
   textSize(60);
 
-  fill(again);
-  text("next level", 500, 640);
+  fill(next);
+  text("next level", 500, 630);
 
-  fill(exit);
+  fill(leave);
   text("exit", 500, 700);
+
+  fill(255);
+  text("high score" + highScore, 500, 750);
+
+  if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650) {
+    next = #0060A8;
+  } else {
+    next = 255;
+  }
+
+  if (mouseX > 450 && mouseX < 550 && mouseY > 680 && mouseY < 720) {
+    leave = #0060A8;
+  } else {
+    leave = 255;
+  }
 }
 
 void winClicks() {
+  if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && Westopolis == true) {
+    mode = WESTOPOLIS;
+  } else if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && Ark == true) {
+    mode = ARK;
+  } else if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && fin == true) {
+    mode = INTRO;
+  }
+
+  if (mouseX > 450 && mouseX < 550 && mouseY > 680 && mouseY < 720) {
+    mode = INTRO;
+  }
 }
