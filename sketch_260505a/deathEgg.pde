@@ -1,5 +1,9 @@
 void deathEgg() {
 
+  fin = false;
+  deathegg = true;
+  Westopolis = false;
+  Ark = false;
 
   image(space, -300, 0);
   fill(#000000, 120);
@@ -55,17 +59,31 @@ void deathEggClicks() {
   }
   if (lives < 0) {
     mode = GAMEOVER;
+    if (score >= highScore) {
+      highScore = score - 1;
+    }
     score = 0;
     lives = 5;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-5, 5);
+    vy = random(-5, 5);
   }
   if (score > 25) {
     mode = WIN;
+    if (score >= highScore) {
+      highScore = score - 1;
+    }
     fin = false;
     deathegg = false;
     Westopolis = true;
     Ark = false;
-    score = 0;
-    lives = 5;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-7, 7);
+    vy = random(-7, 7);
   }
   if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
     mode = PAUSE;

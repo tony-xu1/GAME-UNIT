@@ -44,5 +44,8 @@ void pauseClicks() {
 
   if (mouseX > 450 && mouseX < 550 && mouseY > 610 && mouseY < 650) {
     mode = INTRO;
+    score = 0;
+    lives = 5;
+    
   }
 }

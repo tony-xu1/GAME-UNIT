@@ -1,6 +1,7 @@
 color level1 = #0060A8;
 color level2 = #0060A8;
 color level3 = #0060A8;
+color back =  #0060A8;
 
 
 void levels() {
@@ -44,6 +45,11 @@ void levels() {
   fill(level3);
   text("SPACE COLONY ARK", 775, 580);
 
+  fill(0);
+  text("BACK", 503, 903);
+  fill(back);
+  text("BACK", 500, 900);
+
   //tactile
   if (mouseX > 150 && mouseX < 300 && mouseY > 400 && mouseY < 550 || mouseX > 150 && mouseX < 300 && mouseY > 565 && mouseY < 595) {
     level1 = #ffffff;
@@ -56,11 +62,17 @@ void levels() {
   } else {
     level2 = #0060A8;
   }
-  
-    if (mouseX > 700 && mouseX < 850 && mouseY > 400 && mouseY < 550 || mouseX > 640 && mouseX < 910 && mouseY > 565 && mouseY < 595) {
+
+  if (mouseX > 700 && mouseX < 850 && mouseY > 400 && mouseY < 550 || mouseX > 640 && mouseX < 910 && mouseY > 565 && mouseY < 595) {
     level3 = #ffffff;
   } else {
     level3 = #0060A8;
+  }
+
+  if (mouseX > 460 && mouseX < 540 && mouseY > 885 && mouseY < 915) {
+    back = #ffffff;
+  } else {
+    back = #0060A8;
   }
 }
 
@@ -69,8 +81,21 @@ void levelsClicks() {
     mode = DEATHEGG;
   } else if (mouseX > 425 && mouseX < 575 && mouseY > 400 && mouseY < 550 || mouseX > 405 && mouseX < 595 && mouseY > 565 && mouseY < 595) {
     mode = WESTOPOLIS;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-7, 7);
+    vy = random(-7, 7);
   } else if (mouseX > 700 && mouseX < 850 && mouseY > 400 && mouseY < 550 || mouseX > 640 && mouseX < 910 && mouseY > 565 && mouseY < 595) {
     mode = ARK;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-10, 10);
+    vy = random(-10, 10);
+  }
+  if (mouseX > 460 && mouseX < 540 && mouseY > 885 && mouseY < 915) {
+    mode = INTRO;
   }
   noStroke();
 }

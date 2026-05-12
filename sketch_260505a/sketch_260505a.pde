@@ -29,6 +29,10 @@ PImage egg;
 PFont arcade;
 PImage sadSonic;
 PImage happySonic;
+PImage westopolis1;
+PImage blackArm;
+PImage spaceColonyArk;
+PImage angelIsland;
 color pause, Pause;
 //target----------------------------------
 
@@ -71,7 +75,20 @@ void setup() {
 
   happySonic = loadImage("happySonic.png");
   happySonic.resize(117, 120);
+  
+  westopolis1 = loadImage("westopolis.jpg");
+  westopolis1.resize(1835, 1000);
+  
+  blackArm = loadImage("blackArm.png");
+  blackArm.resize(200, 200);
 
+  spaceColonyArk = loadImage("spaceColonyArk.png");
+  spaceColonyArk.resize(300, 250);
+  
+  angelIsland = loadImage("angelIsland.png");
+  angelIsland.resize(1430, 1000);
+  
+  
   size(1000, 1000);
   mode = INTRO;
 

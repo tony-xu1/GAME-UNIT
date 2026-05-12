@@ -20,7 +20,8 @@ void gameover() {
   fill(exit);
   text("exit", 500, 700);
 
-  text("high score" + highScore, 500, 750);
+  fill(255);
+  text("high score" + highScore, 500, 800);
 
   if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650) {
     again = #0060A8;
@@ -39,10 +40,26 @@ void gameoverClicks() {
 
   if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && deathegg == true) {
     mode = DEATHEGG;
+    score = 0;
+    lives = 5;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-5, 5);
+    vy = random(-5, 5);
   } else if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && Westopolis == true) {
     mode = WESTOPOLIS;
+    score = 0;
+    lives = 5;
+    x = 500;
+    y = 500;
+    d = 200;
+    vx = random(-7, 7);
+    vy = random(-7, 7);
   } else if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && Ark == true) {
     mode = ARK;
+    score = 0;
+    lives = 5;
   }
 
   if (mouseX > 450 && mouseX < 550 && mouseY > 680 && mouseY < 720) {
