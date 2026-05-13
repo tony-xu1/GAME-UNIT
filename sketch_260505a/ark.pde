@@ -19,7 +19,6 @@ void ark() {
   circle(x, y, d);
   image(spaceColonyArk, x - 145, y - 135);
 
-  arcade = createFont ("ARCADECLASSIC.TTF", 100);
   textFont (arcade);
   fill(255);
   textSize(50);
@@ -58,7 +57,7 @@ void arkClicks() {
   if (lives < 0) {
     mode = GAMEOVER;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     score = 0;
     lives = 5;
@@ -71,7 +70,7 @@ void arkClicks() {
   if (score > 100) {
     mode = WIN;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     fin = true;
     deathegg = false;

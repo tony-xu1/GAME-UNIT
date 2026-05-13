@@ -17,7 +17,14 @@ void mouseReleased() {
     winClicks();
   } else if (mode == OPTIONS) {
     optionsClicks();
+  } else if (mode == GAME) {
+    game();
   } else {
     println ("Error : Mode =" + mode);
   }
+  controlSlider();
+}
+
+void mouseDragged() {
+  controlSlider();
 }

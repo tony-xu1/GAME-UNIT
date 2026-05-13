@@ -60,7 +60,7 @@ void deathEggClicks() {
   if (lives < 0) {
     mode = GAMEOVER;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     score = 0;
     lives = 5;
@@ -73,7 +73,7 @@ void deathEggClicks() {
   if (score > 25) {
     mode = WIN;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     fin = false;
     deathegg = false;

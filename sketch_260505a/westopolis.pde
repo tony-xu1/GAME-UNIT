@@ -59,7 +59,7 @@ void westopolisClicks() {
   if (lives < 0) {
     mode = GAMEOVER;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     score = 0;
     lives = 5;
@@ -72,7 +72,7 @@ void westopolisClicks() {
   if (score > 50) {
     mode = WIN;
     if (score >= highScore) {
-      highScore = score - 1;
+      highScore = score;
     }
     fin = false;
     deathegg = false;

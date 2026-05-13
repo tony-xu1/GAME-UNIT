@@ -10,11 +10,15 @@ final int WESTOPOLIS = 5;
 final int ARK = 6;
 final int WIN = 7;
 final int OPTIONS = 8;
+final int GAME = 9;
 
 boolean fin;
 boolean deathegg;
 boolean Westopolis;
 boolean Ark;
+
+//gamemode
+boolean infinite = false;
 
 //texture---------------------------------
 
@@ -40,6 +44,7 @@ float x, y, d;
 float vx, vy;
 
 int score, lives, highScore;
+
 
 cloud[] myCloud;
 int n = 10;
@@ -75,20 +80,23 @@ void setup() {
 
   happySonic = loadImage("happySonic.png");
   happySonic.resize(117, 120);
-  
+
   westopolis1 = loadImage("westopolis.jpg");
   westopolis1.resize(1835, 1000);
-  
+
   blackArm = loadImage("blackArm.png");
   blackArm.resize(200, 200);
 
   spaceColonyArk = loadImage("spaceColonyArk.png");
   spaceColonyArk.resize(300, 250);
-  
+
   angelIsland = loadImage("angelIsland.png");
   angelIsland.resize(1430, 1000);
-  
-  
+
+  arcade = createFont ("ARCADECLASSIC.TTF", 100);
+
+  sega = createFont ("SEGA.TTF", 100);
+
   size(1000, 1000);
   mode = INTRO;
 
@@ -135,6 +143,8 @@ void draw() {
     win();
   } else if (mode == OPTIONS) {
     options();
+  } else if (mode == GAME) {
+    game();
   } else {
     println ("Error : Mode =" + mode);
   }

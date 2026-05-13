@@ -15,7 +15,6 @@ void intro() {
   fill(255, 255, 255, 100);
   rect(0, 0, 1000, 1000);
 
-  sega = createFont ("SEGA.TTF", 100);
   textFont (sega);
   fill(0);
   text ("SONIC CLICKER", 507, 257);
@@ -48,11 +47,13 @@ void intro() {
 }
 
 void introClicks() {
-  if (mouseX > 390 && mouseX < 610 && mouseY > 570 && mouseY < 630) {
+  if (mouseX > 390 && mouseX < 610 && mouseY > 570 && mouseY < 630 && infinite == false) {
     mode = LEVELS;
+  } else if (infinite == true) {
+    mode = GAME;
   }
-  
-   if (mouseX > 350 && mouseX < 650 && mouseY > 670 && mouseY < 730) {
+
+  if (mouseX > 350 && mouseX < 650 && mouseY > 670 && mouseY < 730) {
     mode = OPTIONS;
-  } 
+  }
 }
