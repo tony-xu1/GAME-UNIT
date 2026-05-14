@@ -40,12 +40,13 @@ void pauseClicks() {
     mode = WESTOPOLIS;
   } else if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120 && Ark == true) {
     mode = ARK;
+  } else if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120 && infinite == true) {
+    mode = GAME;
   }
 
   if (mouseX > 450 && mouseX < 550 && mouseY > 610 && mouseY < 650) {
     mode = INTRO;
     score = 0;
     lives = 5;
-    
   }
 }

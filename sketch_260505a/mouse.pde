@@ -18,13 +18,17 @@ void mouseReleased() {
   } else if (mode == OPTIONS) {
     optionsClicks();
   } else if (mode == GAME) {
-    game();
+    gameClicks();
   } else {
     println ("Error : Mode =" + mode);
   }
-  controlSlider();
+  if (mode == OPTIONS) {
+    controlSlider();
+  }
 }
 
 void mouseDragged() {
-  controlSlider();
+  if (mode == OPTIONS) {
+    controlSlider();
+  }
 }

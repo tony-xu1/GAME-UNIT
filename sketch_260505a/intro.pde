@@ -2,6 +2,16 @@ color start = #0060A8;
 color options = #0060A8;
 
 void intro() {
+
+  westopolisost.pause();
+  deatheggost.pause();
+  gameover.pause();
+  win.pause();
+  optionsost.pause();
+  infiniteost.pause();
+  levelost.pause();
+  arkost.pause();
+  GreenHill.play();
   image(greenHill, -390, 0);
 
 

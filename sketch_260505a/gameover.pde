@@ -2,6 +2,16 @@ color again = 255;
 color exit = 255;
 
 void gameover() {
+
+  GreenHill.pause();
+  westopolisost.pause();
+  deatheggost.pause();
+  win.pause();
+  optionsost.pause();
+  levelost.pause();
+  arkost.pause();
+  infiniteost.pause();
+  gameover.play();
   fill(#981919, 10);
   rect(0, 0, 1000, 1000);
 
@@ -60,7 +70,13 @@ void gameoverClicks() {
     mode = ARK;
     score = 0;
     lives = 5;
+  } else if (mouseX > 350 && mouseX < 650 && mouseY > 610 && mouseY < 650 && infinite == true) {
+    mode = GAME;
+    score = 0;
+    lives = 5;
+    d = map(rX, 150, 650, 50, 200);
   }
+
 
   if (mouseX > 450 && mouseX < 550 && mouseY > 680 && mouseY < 720) {
     mode = INTRO;

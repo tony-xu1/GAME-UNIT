@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 // clicker game--------------------------
 
 int mode;
@@ -37,13 +44,18 @@ PImage westopolis1;
 PImage blackArm;
 PImage spaceColonyArk;
 PImage angelIsland;
+PImage ring;
 color pause, Pause;
 //target----------------------------------
 
-float x, y, d;
+float x, y, d = 200;
 float vx, vy;
 
 int score, lives, highScore;
+
+//sound effects----------------------------
+Minim minim;
+AudioPlayer point, GreenHill, westopolisost, arkost, deatheggost, gameover, win, infiniteost, optionsost, levelost;
 
 
 cloud[] myCloud;
@@ -93,9 +105,24 @@ void setup() {
   angelIsland = loadImage("angelIsland.png");
   angelIsland.resize(1430, 1000);
 
+  ring = loadImage("ring.png");
+
   arcade = createFont ("ARCADECLASSIC.TTF", 100);
 
   sega = createFont ("SEGA.TTF", 100);
+
+  //sounds----------------------------------
+  minim = new Minim(this);
+  GreenHill = minim.loadFile("GreenHill.mp3");
+  westopolisost = minim.loadFile("westopolisost.mp3");
+  point = minim.loadFile("getRing.mp3");
+  arkost = minim.loadFile("arkost.mp3");
+  win = minim.loadFile("stageclear.mp3");
+  gameover = minim.loadFile("gameover.mp3");
+  deatheggost = minim.loadFile("deatheggost.mp3");
+  levelost = minim.loadFile("oiloceanost.mp3");
+  optionsost = minim.loadFile("optionost.mp3");
+  infiniteost = minim.loadFile("infinite.mp3");
 
   size(1000, 1000);
   mode = INTRO;

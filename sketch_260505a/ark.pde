@@ -4,6 +4,15 @@ void ark() {
   Westopolis = false;
   Ark = true;
 
+  GreenHill.pause();
+  westopolisost.pause();
+  deatheggost.pause();
+  gameover.pause();
+  win.pause();
+  optionsost.pause();
+  levelost.pause();
+  infiniteost.pause();
+  arkost.play();
   image(space, -300, 0);
   fill(#000000, 120);
   rect(0, 0, 1000, 1000);
@@ -47,6 +56,8 @@ void ark() {
 void arkClicks() {
   if (dist(mouseX, mouseY, x, y) < d/2) {
     score = score + 1;
+    point.rewind();
+    point.play();
     vx = 1.05 * vx;
     vy = 1.05 * vy;
   } else  if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {

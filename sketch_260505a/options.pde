@@ -5,6 +5,16 @@ float volume;
 
 
 void options() {
+
+  GreenHill.pause();
+  westopolisost.pause();
+  deatheggost.pause();
+  gameover.pause();
+  win.pause();
+  optionsost.play();
+  infiniteost.pause();
+  levelost.pause();
+  arkost.pause();
   image(angelIsland, -215, 0);
 
   noStroke();
@@ -41,22 +51,20 @@ void options() {
   fill(Infinite);
   text("infinite", 680, 300);
 
-  fill(0);
-  text("size", 183, 450);
 
 
-  strokeWeight(20);
-  stroke(255);
-  line(150, 500, 650, 500);
+  //strokeWeight(20);
+  //stroke(255);
+  //line(150, 500, 650, 500);
 
-  fill(255);
-  stroke(#0060AB);
-  strokeWeight(5);
-  circle(rX, 500, 50);
+  //fill(255);
+  //stroke(#0060AB);
+  //strokeWeight(5);
+  //circle(rX, 500, 50);
 
-  circle(780, 500, d);
+  //circle(780, 500, d);
 
-  noStroke();
+  //noStroke();
 
   if (infinite == false) {
     level = #0060AB;
@@ -64,6 +72,22 @@ void options() {
   } else if (infinite == true) {
     level = 255;
     Infinite = #0060AB;
+
+    fill(0);
+    text("size", 183, 450);
+
+    strokeWeight(20);
+    stroke(255);
+    line(150, 500, 650, 500);
+
+    fill(255);
+    stroke(#0060AB);
+    strokeWeight(5);
+    circle(rX, 500, 50);
+
+    circle(780, 500, d);
+
+    noStroke();
   }
 
 
@@ -93,6 +117,7 @@ void controlSlider() {
   }
   if (infinite == true) {
     d = map(rX, 150, 650, 50, 200);
+    ring.resize((int)d, (int)d);
   } else if (infinite == false) {
     d = 200;
   }

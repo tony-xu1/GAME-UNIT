@@ -2,6 +2,16 @@ color next = 255;
 color leave = 255;
 
 void win() {
+
+  GreenHill.pause();
+  westopolisost.pause();
+  deatheggost.pause();
+  gameover.pause();
+  infiniteost.pause();
+  optionsost.pause();
+  levelost.pause();
+  arkost.pause();
+  win.play();
   fill(#D8B609, 10);
   rect(0, 0, 1000, 1000);
 

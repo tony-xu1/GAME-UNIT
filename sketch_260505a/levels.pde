@@ -5,6 +5,15 @@ color back =  #0060A8;
 
 
 void levels() {
+  GreenHill.pause();
+  westopolisost.pause();
+  deatheggost.pause();
+  gameover.pause();
+  win.pause();
+  optionsost.pause();
+  levelost.play();
+  infiniteost.pause();
+  arkost.pause();
   noStroke();
   image(oilOcean, -223, 0);
 
