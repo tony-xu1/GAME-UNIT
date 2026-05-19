@@ -1,7 +1,6 @@
 color Infinite;
 color level;
 float rX = 400;
-float volume;
 
 
 void options() {
