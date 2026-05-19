@@ -67,6 +67,8 @@ void gameClicks() {
   } else  if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
     mode = PAUSE;
   } else {
+    lifelost.rewind();
+    lifelost.play();
     lives = lives - 1;
   }
   if (lives < 0) {

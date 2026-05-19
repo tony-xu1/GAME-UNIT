@@ -55,7 +55,7 @@ int score, lives, highScore;
 
 //sound effects----------------------------
 Minim minim;
-AudioPlayer point, GreenHill, westopolisost, arkost, deatheggost, gameover, win, infiniteost, optionsost, levelost;
+AudioPlayer point, GreenHill, westopolisost, arkost, deatheggost, gameover, win, infiniteost, optionsost, levelost, lifelost;
 
 
 cloud[] myCloud;
@@ -123,6 +123,7 @@ void setup() {
   levelost = minim.loadFile("oiloceanost.mp3");
   optionsost = minim.loadFile("optionost.mp3");
   infiniteost = minim.loadFile("infinite.mp3");
+  lifelost = minim.loadFile("ringDrop.mp3");
 
   size(1000, 1000);
   mode = INTRO;
