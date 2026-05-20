@@ -16,14 +16,35 @@ final int SPECIAL = 4;
 final int WIN = 5;
 final int OPTIONS = 6;
 
+float leftx, lefty, leftd, rightx, righty, rightd;
+float ballx, bally, balld;
+boolean wkey, skey, upkey, downkey;
+float vx, vy;
+
 PImage casinoNight;
 PFont arcade;
+boolean singleplayer, multiplayer;
 
 void setup(){ 
-  size(2000, 1000);
+  size(1900, 1000);
+  textAlign(CENTER, CENTER);
   
   casinoNight = loadImage("casinonight.png");
   casinoNight.resize(2000, 1042);
+  
+  arcade = createFont("ARCADECLASSIC.TTF", 100);
+  
+  leftx = 0;
+  lefty = height/2;
+  leftd = 150;
+  rightx = width;
+  righty = height/2;
+  rightd = 150;
+  ballx = width/2;
+  bally = height/2;
+  balld = 30;
+  
+  wkey = skey = upkey = downkey = false;
 }
 
 void draw(){
