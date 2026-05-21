@@ -55,12 +55,10 @@ void introClicks() {
     if (mouseX > 500 && mouseX < 900 && mouseY > 480 && mouseY < 520) {
     mode = GAME;
     singleplayer = true;
-    multiplayer = false;
   } 
    if (mouseX > 970 && mouseX < 1350 && mouseY > 480 && mouseY < 520) {
     mode = GAME;
     singleplayer = false;
-    multiplayer = true;
   }
     if (mouseX > 800 && mouseX < 1020 && mouseY > 630 && mouseY < 670) {
     mode = OPTIONS;

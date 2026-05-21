@@ -16,24 +16,29 @@ final int SPECIAL = 4;
 final int WIN = 5;
 final int OPTIONS = 6;
 
+int timer;
+int rightScore = 0, leftScore = 0;
+
 float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld;
 boolean wkey, skey, upkey, downkey;
 float vx, vy;
+float aioffset;
 
 PImage casinoNight;
 PFont arcade;
-boolean singleplayer, multiplayer;
+boolean singleplayer;
+boolean rightwin, leftwin;
 
-void setup(){ 
+void setup() {
   size(1900, 1000);
   textAlign(CENTER, CENTER);
-  
+
   casinoNight = loadImage("casinonight.png");
   casinoNight.resize(2000, 1042);
-  
+
   arcade = createFont("ARCADECLASSIC.TTF", 100);
-  
+
   leftx = 0;
   lefty = height/2;
   leftd = 150;
@@ -43,12 +48,16 @@ void setup(){
   ballx = width/2;
   bally = height/2;
   balld = 30;
-  
+  vx = random(-5, -10);
+  vy = 0;
+  timer = 50;
+  aioffset = random(-1, 1);
+
   wkey = skey = upkey = downkey = false;
 }
 
-void draw(){
-    if (mode == INTRO) {
+void draw() {
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
     game();
@@ -58,7 +67,7 @@ void draw(){
     gameover();
   } else if (mode == WIN) {
     win();
-  } else if (mode == OPTIONS){
+  } else if (mode == OPTIONS) {
     options();
   } else if (mode == SPECIAL) {
     special();
