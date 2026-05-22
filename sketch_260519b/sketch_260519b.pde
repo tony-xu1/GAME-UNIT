@@ -12,9 +12,8 @@ final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
 final int PAUSE = 3;
-final int SPECIAL = 4;
-final int WIN = 5;
-final int OPTIONS = 6;
+final int WIN = 4;
+final int OPTIONS = 5;
 
 int timer;
 int rightScore = 0, leftScore = 0;
@@ -29,6 +28,13 @@ PImage casinoNight;
 PFont arcade;
 boolean singleplayer;
 boolean rightwin, leftwin;
+color pause = 255, Pause ;
+color exit;
+PImage sadSonic;
+PImage happySonic;
+
+Minim minim;
+AudioPlayer hit, intro, game, win, lose;
 
 void setup() {
   size(1900, 1000);
@@ -38,6 +44,19 @@ void setup() {
   casinoNight.resize(2000, 1042);
 
   arcade = createFont("ARCADECLASSIC.TTF", 100);
+
+  sadSonic = loadImage("sadSonic.png");
+  sadSonic.resize(85, 120);
+
+  happySonic = loadImage("happySonic.png");
+  happySonic.resize(117, 120);
+
+  minim = new Minim(this);
+  intro = minim.loadFile("casinonight.mp3");
+  game = minim.loadFile("game.mp3");
+  hit = minim.loadFile("hit.mp3");
+  lose = minim.loadFile("gameover.mp3");
+  win = minim.loadFile("stageclear.mp3");
 
   leftx = 0;
   lefty = height/2;
@@ -67,10 +86,6 @@ void draw() {
     gameover();
   } else if (mode == WIN) {
     win();
-  } else if (mode == OPTIONS) {
-    options();
-  } else if (mode == SPECIAL) {
-    special();
   } else {
     println ("Error : Mode =" + mode);
   }

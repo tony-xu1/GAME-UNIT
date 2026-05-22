@@ -9,10 +9,6 @@ void mouseReleased(){
     gameoverClicks();
   } else if (mode ==WIN) {
     winClicks();
-  } else if (mode == OPTIONS){
-    optionsClicks();
-  } else if (mode == SPECIAL) {
-    specialClicks();
   } else {
     println ("Error : Mode =" + mode);
   } 

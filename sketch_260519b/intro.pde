@@ -1,8 +1,12 @@
 color single = 255;
 color multi = 255;
-color options = 255;
 
 void intro() {
+  intro.play();
+  game.pause();
+  win.pause();
+  lose.pause();
+  
   image(casinoNight, -50, -21);
   fill(#10096A, 150);
   rect(0, 0, 2000, 1000);
@@ -25,10 +29,6 @@ void intro() {
   fill(multi);
   text("multiplayer", 1160, 500);
 
-  fill(0);
-  text("options", 915, 655);
-  fill(options);
-  text("options", 910, 650);
 
   //tactile
 
@@ -43,12 +43,6 @@ void intro() {
   } else {
     multi = 255;
   }
-
-  if (mouseX > 800 && mouseX < 1020 && mouseY > 630 && mouseY < 670) {
-    options = #FFDD52;
-  } else {
-    options = 255;
-  }
 }
 
 void introClicks() {
@@ -60,7 +54,4 @@ void introClicks() {
     mode = GAME;
     singleplayer = false;
   }
-    if (mouseX > 800 && mouseX < 1020 && mouseY > 630 && mouseY < 670) {
-    mode = OPTIONS;
-  } 
 }
