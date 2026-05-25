@@ -7,6 +7,8 @@ import ddf.minim.ugens.*;
 
 //Pong!
 
+
+//mode framework
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
@@ -18,11 +20,15 @@ final int OPTIONS = 5;
 int timer;
 int rightScore = 0, leftScore = 0;
 
+//ball and paddles
+
 float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld;
 boolean wkey, skey, upkey, downkey;
 float vx, vy;
 float aioffset;
+
+//texture
 
 PImage casinoNight;
 PFont arcade;
