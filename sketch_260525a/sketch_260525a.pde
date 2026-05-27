@@ -18,12 +18,24 @@ final int WIN = 4;
 
 PImage [] introgif;
 int nofFrames;
+int f;
+
+PFont arcade;
 
 void setup() {
   size(1000, 1000);
-  
+  textAlign(CENTER);
+
   nofFrames = 30;
-  introgif = new PImage 
+  introgif = new PImage [nofFrames];
+
+  int i = 0;
+  while (i < nofFrames) {
+    introgif[i] = loadImage("frame_"+i+"_delay-0.04s.gif");
+    i++;
+  }
+
+  arcade = createFont("ARCADECLASSIC.TTF", 100);
 }
 
 
