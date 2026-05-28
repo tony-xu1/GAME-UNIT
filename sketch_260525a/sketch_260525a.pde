@@ -19,8 +19,21 @@ final int WIN = 4;
 PImage [] introgif;
 int nofFrames;
 int f;
+int n;
+
+int [] x;
+int [] y;
+int tempx, tempy;
 
 PFont arcade;
+boolean akey, dkey;
+
+int timer = 50;
+
+// brick and paddles
+int brickx, bricky, brickd, ballx, bally, balld, paddlex, paddley, paddled;
+
+int bx, by, px, py;
 
 void setup() {
   size(1000, 1000);
@@ -33,6 +46,34 @@ void setup() {
   while (i < nofFrames) {
     introgif[i] = loadImage("frame_"+i+"_delay-0.04s.gif");
     i++;
+  }
+
+  tempx = 100;
+  tempy = 100;
+  brickd = 50;
+  ballx = width/2;
+  bally = 700;
+  balld= 20;
+  paddlex = width/2;
+  paddley = 1000;
+  paddled = 100;
+  bx = 0;
+  by = 7;
+
+  n = 54;
+  x = new int[n];
+  y = new int[n];
+
+  int b = 0;
+  while (b < n) {
+    x[b] = tempx;
+    y[b] = tempy;
+    tempx = tempx + 100;
+    if ( tempx == width) {
+      tempy = tempy + 100;
+      tempx = 100;
+    }
+    b++;
   }
 
   arcade = createFont("ARCADECLASSIC.TTF", 100);
