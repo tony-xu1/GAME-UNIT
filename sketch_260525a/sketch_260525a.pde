@@ -23,12 +23,15 @@ int n;
 
 int [] x;
 int [] y;
+boolean [] alive;
 int tempx, tempy;
 
 PFont arcade;
 boolean akey, dkey;
 
 int timer = 50;
+int score;
+int lives;
 
 // brick and paddles
 int brickx, bricky, brickd, ballx, bally, balld, paddlex, paddley, paddled;
@@ -59,15 +62,19 @@ void setup() {
   paddled = 100;
   bx = 0;
   by = 7;
+  score = 0;
+  lives = 5;
 
   n = 54;
   x = new int[n];
   y = new int[n];
+  alive = new boolean [n];
 
   int b = 0;
   while (b < n) {
     x[b] = tempx;
     y[b] = tempy;
+    alive[b] = true;
     tempx = tempx + 100;
     if ( tempx == width) {
       tempy = tempy + 100;
