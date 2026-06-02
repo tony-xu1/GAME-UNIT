@@ -16,6 +16,7 @@ final int GAMEOVER = 3;
 final int WIN = 4;
 
 
+PImage happySonic, sadSonic;
 PImage [] introgif;
 int nofFrames;
 int f;
@@ -41,6 +42,12 @@ int bx, by, px, py;
 void setup() {
   size(1000, 1000);
   textAlign(CENTER);
+
+  sadSonic = loadImage("sadSonic.png");
+  sadSonic.resize(85, 120);
+
+  happySonic = loadImage("happySonic.png");
+  happySonic.resize(117, 120);
 
   nofFrames = 30;
   introgif = new PImage [nofFrames];

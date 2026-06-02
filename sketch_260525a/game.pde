@@ -44,12 +44,12 @@ void game() {
 
   if (ballx > width - balld/2 || ballx < balld/2) bx = -1 * bx;
 
-if(bx = 0) bx = random
+  if (by == 0) by = (int)random(1, 2);
 
-    if (dist(paddlex, paddley, ballx, bally) < paddled/2 + balld/2) {
-      bx = (ballx-paddlex)/6;
-      by = (bally- paddley)/6;
-    }
+  if (dist(paddlex, paddley, ballx, bally) < paddled/2 + balld/2) {
+    bx = (ballx-paddlex)/6;
+    by = (bally- paddley)/6;
+  }
 
   if (bally > 1050) {
     timer = 50;
@@ -66,7 +66,7 @@ if(bx = 0) bx = random
 
   if (lives <= 0) mode = GAMEOVER;
 
-  if (score > n) mode = WIN;
+  if (score >= n) mode = WIN;
 
   if (mouseX > 50 && mouseX < 120 && mouseY > 50 && mouseY < 120) {
     pause = 255;

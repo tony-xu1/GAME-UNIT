@@ -30,7 +30,7 @@ void pause() {
     Pause = 255;
   }
 
-  if (mouseX > 450 && mouseX < 550 && mouseY > 610 && mouseY < 650) {
+  if (mouseX > 430 && mouseX < 570 && mouseY > 590 && mouseY < 650) {
     exit = 0;
   } else {
     exit = 255;
@@ -43,7 +43,7 @@ void pauseClicks() {
     mode = GAME;
   }
 
-  if (mouseX > 450 && mouseX < 550 && mouseY > 610 && mouseY < 650) {
+  if (mouseX > 430 && mouseX < 570 && mouseY > 590 && mouseY < 650) {
     mode = INTRO;
     ballx = width/2;
     bally = 700;
