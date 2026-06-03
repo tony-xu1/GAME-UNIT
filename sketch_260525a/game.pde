@@ -1,5 +1,10 @@
 void game() {
 
+  intro.pause();
+  game.play();
+  win.pause();
+  lose.pause();
+
   fill(#24201A);
   rect(0, 0, width, height);
   fill(255);
@@ -23,7 +28,7 @@ void game() {
     b++;
   }
 
-
+  fill(255);
   circle(paddlex, paddley, paddled);
   circle(ballx, bally, balld);
 
@@ -49,6 +54,8 @@ void game() {
   if (dist(paddlex, paddley, ballx, bally) < paddled/2 + balld/2) {
     bx = (ballx-paddlex)/6;
     by = (bally- paddley)/6;
+    hit.rewind();
+    hit.play();
   }
 
   if (bally > 1050) {
@@ -85,7 +92,12 @@ void gameClicks() {
 
 
 void manageBricks(int b) {
-  fill(255);
+  if (y[b] == 100) fill(#DB0000);
+  if (y[b] == 200) fill(#A700DB);
+  if (y[b] == 300) fill(#0200DB);
+  if (y[b] == 400) fill(#0097DB);
+  if (y[b] == 500) fill (#00DB34);
+  if (y[b] == 600) fill (#DB5400);
   alive[b] = true;
   circle(x[b], y[b], brickd);
   if (dist(x[b], y[b], ballx, bally) < brickd/2 + balld/2) {
@@ -93,5 +105,7 @@ void manageBricks(int b) {
     by = (bally - y[b])/4;
     alive[b] = false;
     score = score + 1;
+    hit.rewind();
+    hit.play();
   }
 }

@@ -3,6 +3,11 @@ color leave = 255;
 
 void win() {
 
+  intro.pause();
+  game.pause();
+  win.play();
+  lose.pause();
+
   fill(#D8B609, 10);
   rect(0, 0, 1000, 1000);
 
@@ -39,6 +44,15 @@ void win() {
 void winClicks() {
   if (mouseX > 340 && mouseX < 640 && mouseY > 580 && mouseY < 620) {
     mode = GAME;
+    brickd = 50;
+    ballx = width/2;
+    bally = 700;
+    balld= 20;
+    paddlex = width/2;
+    paddley = 1000;
+    paddled = 100;
+    bx = 0;
+    by = 7;
     score = 0;
     lives = 5;
     int b = 0;
@@ -50,6 +64,15 @@ void winClicks() {
 
   if (mouseX > 435 && mouseX < 550 && mouseY > 650 && mouseY < 700) {
     mode = INTRO;
+    brickd = 50;
+    ballx = width/2;
+    bally = 700;
+    balld= 20;
+    paddlex = width/2;
+    paddley = 1000;
+    paddled = 100;
+    bx = 0;
+    by = 7;
     score = 0;
     lives = 5;
     int b = 0;

@@ -1,6 +1,12 @@
 color start = 255;
 
 void intro() {
+
+  intro.play();
+  game.pause();
+  win.pause();
+  lose.pause();
+  
   image(introgif[f], 0, 0, width, height);
   f++;
   if (f == nofFrames) f = 0;
@@ -34,5 +40,5 @@ void intro() {
 void introClicks() {
   if (mouseX > 370 && mouseX < 630 && mouseY > 540 && mouseY < 600) {
     mode = GAME;
-  } 
+  }
 }

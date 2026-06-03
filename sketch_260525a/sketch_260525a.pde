@@ -39,6 +39,10 @@ int brickx, bricky, brickd, ballx, bally, balld, paddlex, paddley, paddled;
 
 int bx, by, px, py;
 
+//minim
+Minim minim;
+AudioPlayer intro, game, hit, win, lose;
+
 void setup() {
   size(1000, 1000);
   textAlign(CENTER);
@@ -48,6 +52,13 @@ void setup() {
 
   happySonic = loadImage("happySonic.png");
   happySonic.resize(117, 120);
+
+  minim = new Minim(this);
+  intro = minim.loadFile("special.mp3");
+  game = minim.loadFile("game.mp3");
+  hit = minim.loadFile("hit.mp3");
+  lose = minim.loadFile("gameover.mp3");
+  win = minim.loadFile("stageclear.mp3");
 
   nofFrames = 30;
   introgif = new PImage [nofFrames];
