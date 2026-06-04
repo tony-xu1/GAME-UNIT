@@ -17,11 +17,32 @@ final int PAUSE = 2;
 final int GAMEOVER = 3;
 final int WIN = 4;
 
-void setup(){
-  rectMode(CENTER);
+PImage pinball;
+PFont arcade, sega;
+
+cloud[] myCloud;
+int n = 10;
+
+void setup() {
   textAlign(CENTER, CENTER);
-  size(1000, 1000);
+  imageMode(CENTER);
+  size(700, 1000);
+
+  pinball = loadImage("spinball.jpg");
+  pinball.resize(1955, 1100);
+
+
+  myCloud = new cloud[n];
+  int i = 0;
+  while (i < n) {
+    myCloud[i] = new cloud();
+    i++;
+  }
   
+  arcade = createFont ("ARCADECLASSIC.TTF", 100);
+
+  sega = createFont ("SEGA.TTF", 100);
+
 }
 
 void draw() {
