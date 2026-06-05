@@ -11,6 +11,14 @@ void intro () {
 
   fill(#052046, 150);
   rect(0, 0, 700, 1000);
+
+
+  textFont(sega);
+  textSize(128);
+  fill(0);
+  text("pinball", width/2 + 5, 205);
+  fill(#0060A8);
+  text("pinball", width/2, 200);
 }
 
 void introClicks() {
