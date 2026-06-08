@@ -12,4 +12,6 @@ void mouseReleased() {
   } else {
     println ("Error : Mode =" + mode);
   }
-}
+    vx = 0;
+    vy = -1 * (40 - timer);
+  }

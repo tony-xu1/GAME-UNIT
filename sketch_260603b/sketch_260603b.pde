@@ -18,7 +18,14 @@ final int GAMEOVER = 3;
 final int WIN = 4;
 
 PImage pinball;
+PImage spindash;
 PFont arcade, sega;
+
+//ball and paddle
+float bx, by, bd, lx, ly, ld, rx, ry, rd;
+float vx, vy;
+int timer = 40;
+float gravity = 0.5;
 
 cloud[] myCloud;
 int n = 10;
@@ -31,6 +38,9 @@ void setup() {
   pinball = loadImage("spinball.jpg");
   pinball.resize(1955, 1100);
 
+  spindash = loadImage("spindash.png");
+  spindash.resize(50, 50);
+
 
   myCloud = new cloud[n];
   int i = 0;
@@ -38,11 +48,17 @@ void setup() {
     myCloud[i] = new cloud();
     i++;
   }
-  
+
   arcade = createFont ("ARCADECLASSIC.TTF", 100);
 
   sega = createFont ("SEGA.TTF", 100);
-
+  
+  
+  bx = width/2;
+  by = 900;
+  bd = 50;
+  vx = 0;
+  vy = 0;
 }
 
 void draw() {
