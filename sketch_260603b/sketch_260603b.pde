@@ -26,6 +26,12 @@ float bx, by, bd, lx, ly, ld, rx, ry, rd;
 float vx, vy;
 int timer = 40;
 float gravity = 0.5;
+int lives;
+boolean G;
+boolean clicked;
+
+int[] cbumperx;
+int[] cbumpery;
 
 cloud[] myCloud;
 int n = 10;
@@ -54,11 +60,15 @@ void setup() {
   sega = createFont ("SEGA.TTF", 100);
   
   
-  bx = width/2;
-  by = 900;
+  bx = 635;
+  by = 750;
   bd = 50;
   vx = 0;
   vy = 0;
+  lives = 5;
+  G = false;
+  clicked = false;
+  
 }
 
 void draw() {
