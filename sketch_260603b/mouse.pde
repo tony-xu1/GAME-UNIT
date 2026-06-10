@@ -12,8 +12,4 @@ void mouseReleased() {
   } else {
     println ("Error : Mode =" + mode);
   }
-  if (clicked == true) {
-    vx = random(-1.5, 1.5);
-    vy = -1 * (40 - timer);
-  }
 }

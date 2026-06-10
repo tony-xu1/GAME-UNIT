@@ -26,12 +26,19 @@ float bx, by, bd, lx, ly, ld, rx, ry, rd;
 float vx, vy;
 int timer = 40;
 float gravity = 0.5;
-int lives;
+int lives = 5;
+int score = 0;
 boolean G;
 boolean clicked;
 
+boolean leftkey, rightkey;
+
 int[] cbumperx;
 int[] cbumpery;
+int cbumperd;
+int tempx, tempy;
+int a;
+
 
 cloud[] myCloud;
 int n = 10;
@@ -58,17 +65,39 @@ void setup() {
   arcade = createFont ("ARCADECLASSIC.TTF", 100);
 
   sega = createFont ("SEGA.TTF", 100);
-  
-  
+
+
   bx = 635;
-  by = 750;
+  by = 740;
   bd = 50;
+  lx = 250;
+  ly = 870;
+  rx = 450;
+  ry = 870;
+  ld = 100;
+  rd = 100;
   vx = 0;
   vy = 0;
   lives = 5;
   G = false;
   clicked = false;
-  
+  a = 10;
+  cbumperx = new int[a];
+  cbumpery = new int[a];
+  tempx = 50;
+  tempy = 50;
+
+  int b = 0;
+  while (b < a) {
+    cbumperx[b] = tempx;
+    cbumpery[b] = tempy;
+    tempx = tempx + (int) random(50, 100);
+    if ( tempx == width) {
+      tempy = tempy + (int) random(50, 100);
+      tempx = (int) random(100, 500);
+    }
+    b++;
+  }
 }
 
 void draw() {
