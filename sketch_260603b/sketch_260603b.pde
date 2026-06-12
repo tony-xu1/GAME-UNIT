@@ -33,11 +33,14 @@ boolean clicked;
 
 boolean leftkey, rightkey;
 
-int[] cbumperx;
-int[] cbumpery;
+int[] cbumperx = new int[5];
+int[] cbumpery = new int [5];
 int cbumperd;
 int tempx, tempy;
-int a;
+
+PVector[] lslope = new PVector[3];
+PVector[] rslope = new PVector[3];
+
 
 
 cloud[] myCloud;
@@ -62,6 +65,14 @@ void setup() {
     i++;
   }
 
+  lslope[0] = new PVector(0, 750);
+  lslope[1] = new PVector(250, 850);
+  lslope[2] = new PVector(0, 850);
+
+  rslope[0] = new PVector(700, 750);
+  rslope[1] = new PVector(450, 850);
+  rslope[2] = new PVector(700, 850);
+
   arcade = createFont ("ARCADECLASSIC.TTF", 100);
 
   sega = createFont ("SEGA.TTF", 100);
@@ -81,23 +92,33 @@ void setup() {
   lives = 5;
   G = false;
   clicked = false;
-  a = 10;
-  cbumperx = new int[a];
-  cbumpery = new int[a];
-  tempx = 50;
-  tempy = 50;
+  cbumperd = 25;
+  //tempx = (int) random(50, 100);
+  //tempy = (int) random(50, 100);
+  //int b = 0;
+  //while (b < a) {
+  //  cbumperx[b] = tempx;
+  //  cbumpery[b] = tempy;
+  //  tempx = tempx + (int) random(50, 100);
+  //  if ( tempx >= width) {
+  //    tempy = tempy + (int) random(50, 100);
+  //    tempx = (int) random(100, 500);
+  //  }
+  //  b++;
+  //}
 
-  int b = 0;
-  while (b < a) {
-    cbumperx[b] = tempx;
-    cbumpery[b] = tempy;
-    tempx = tempx + (int) random(50, 100);
-    if ( tempx == width) {
-      tempy = tempy + (int) random(50, 100);
-      tempx = (int) random(100, 500);
-    }
-    b++;
-  }
+
+  cbumperx[0] = 370;
+  cbumperx[1] = 250;
+  cbumperx[2] = 550;
+  cbumperx[3] = 100;
+  cbumperx[4] = 480;
+  
+  cbumpery[0] = 550;
+  cbumpery[1] = 650;
+  cbumpery[2] = 500;
+  cbumpery[3] = 600;
+  cbumpery[4] = 620;
 }
 
 void draw() {
