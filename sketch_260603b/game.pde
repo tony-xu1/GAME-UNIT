@@ -1,3 +1,6 @@
+color left;
+color right;
+
 void game () {
 
   fill(#090831);
@@ -15,10 +18,28 @@ void game () {
   fill(#0000FF);
   circle(width/2, 400, 150);
   fill(255);
-  text("50", width/2, 400);
+  text("500", width/2, 400);
 
   fill(#FF0000);
-  circle(120, 300, 100);
+  circle(120, 350, 100);
+  fill(255);
+  textSize(25);
+  text("speed!", 120, 350);
+  textSize(70);
+  
+  fill(#1C810D);
+  circle(200, 100, 170);
+  fill(255);
+  text("1000", 200, 100);
+  
+  fill(#4AD8D5);
+  circle(450, 60, 100);
+  circle(20, 680, 100);
+  fill(0);
+  textSize(20);
+  text("TP " + tptimer, 450, 60);
+  text("TP " + tptimer, 25, 680);
+  textSize(70);
 
   fill(255, 0);
   circle(bx, by, bd);
@@ -62,6 +83,10 @@ void game () {
   if (mousePressed && dist(mouseX, mouseY, bx, by) < 50 && G == false && clicked == false && timer > 0) {
     timer = timer - 1;
   }
+  
+  if(tptimer > 0){
+   tptimer = tptimer - 1; 
+  }
 
 
   if ( by < bd/2) vy = -1 * vy;
@@ -84,7 +109,6 @@ void game () {
     rd = 100;
     vx = 0;
     vy = 0;
-    lives = 5;
     G = false;
     clicked = false;
     timer = 40;
@@ -96,9 +120,9 @@ void game () {
   }
 
   if (dist(width/2, 400, bx, by) < 75 + bd/2) {
-    vx = (bx - width/2)/5;
-    vy = (by - 400)/5;
-    score = score + 50;
+    vx = (bx - width/2)/6;
+    vy = (by - 400)/6;
+    score = score + 500;
   }
 
 
@@ -128,11 +152,13 @@ void game () {
   if (dist(lx, ly, bx, by)< ld/2 + bd/2) {
     vx = (bx - lx)/3;
     vy = (by - ly)/3;
+    score = score + 1;
   }
 
   if (dist(rx, ry, bx, by)< rd/2 + bd/2) {
     vx = (bx - rx)/3;
     vy = (by - ry)/3;
+    score = score + 1;
   }
 
   if (hit1 == true) {
@@ -155,9 +181,28 @@ void game () {
     hit2 = false;
   }
 
-  if (dist(150, 300, bx, by) < 50 + bd/2) {
-    vx = random(-10, 10);
-    vy = random(-10, 10);
+  if (dist(120, 350, bx, by) < 50 + bd/2) {
+    vx = 1.1 * vx;
+    vy = 1.1 * vy;
+  }
+  
+  
+  if (dist(200, 100, bx, by)< 85 + bd/2) {
+    vx = (bx - 200)/5;
+    vy = (by - 100)/5;
+    score = score + 1000;
+  }
+  
+  if (dist(450, 60, bx, by)< 50 + bd/2 && tptimer == 0) {
+    bx = 25;
+    by = 680;
+    tptimer = 300;
+  }
+  
+   if (dist(25, 680, bx, by)< 50 + bd/2 && tptimer == 0) {
+    bx = 450;
+    by = 60;
+    tptimer = 300;
   }
 
   println(score);
@@ -263,10 +308,10 @@ void gameClicks() {
 }
 
 void manageBricks(int b) {
-  fill(#0060A8);
+  fill(#D8924A);
   circle(cbumperx[b], cbumpery[b], cbumperd);
   fill(255);
-  text(b, cbumperx[b], cbumpery[b]);
+  //text(b, cbumperx[b], cbumpery[b]);
   if (dist(cbumperx[b], cbumpery[b], bx, by) < cbumperd/2 + bd/2) {
     vx = (bx - cbumperx[b])/5;
     vy = (by - cbumpery[b])/5;

@@ -33,6 +33,8 @@ boolean clicked;
 
 boolean leftkey, rightkey;
 
+int tptimer = 300;
+
 int[] cbumperx = new int[5];
 int[] cbumpery = new int [5];
 int cbumperd;
@@ -92,7 +94,7 @@ void setup() {
   lives = 5;
   G = false;
   clicked = false;
-  cbumperd = 25;
+  cbumperd = 20;
   //tempx = (int) random(50, 100);
   //tempy = (int) random(50, 100);
   //int b = 0;
@@ -109,7 +111,7 @@ void setup() {
 
 
   cbumperx[0] = 370;
-  cbumperx[1] = 250;
+  cbumperx[1] = 175;
   cbumperx[2] = 550;
   cbumperx[3] = 100;
   cbumperx[4] = 480;
@@ -117,7 +119,7 @@ void setup() {
   cbumpery[0] = 550;
   cbumpery[1] = 650;
   cbumpery[2] = 500;
-  cbumpery[3] = 600;
+  cbumpery[3] = 540;
   cbumpery[4] = 620;
 }
 
