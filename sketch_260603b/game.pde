@@ -26,16 +26,16 @@ void game () {
   textSize(25);
   text("speed!", 120, 350);
   textSize(70);
-  
+
   fill(#1C810D);
   circle(200, 100, 170);
   fill(255);
   text("1000", 200, 100);
-  
+
   fill(#4AD8D5);
   circle(450, 60, 100);
   circle(20, 680, 100);
-  fill(0);
+  fill(255);
   textSize(20);
   text("TP " + tptimer, 450, 60);
   text("TP " + tptimer, 25, 680);
@@ -43,6 +43,7 @@ void game () {
 
   fill(255, 0);
   circle(bx, by, bd);
+  tint(255, 255);
   image(spindash, bx, by);
 
   boolean hit1 = polyCircle1(lslope, bx, by, bd);
@@ -71,6 +72,14 @@ void game () {
   rect(0, 850, width, height);
   noStroke();
 
+  fill(0);
+  textAlign(LEFT);
+  textSize(35);
+  text("score " + score, 20, 950);
+  text("lives " + lives, 20, 980);
+  textSize(70);
+  textAlign(CENTER, CENTER);
+
   bx = bx + vx;
   by = by + vy;
 
@@ -83,9 +92,9 @@ void game () {
   if (mousePressed && dist(mouseX, mouseY, bx, by) < 50 && G == false && clicked == false && timer > 0) {
     timer = timer - 1;
   }
-  
-  if(tptimer > 0){
-   tptimer = tptimer - 1; 
+
+  if (tptimer > 0) {
+    tptimer = tptimer - 1;
   }
 
 
@@ -112,8 +121,12 @@ void game () {
     G = false;
     clicked = false;
     timer = 40;
+    tptimer = 300;
   }
 
+  //if (bx > width/2 - bd/2) bx = width - bd/2;
+  //if (bx < bd/2) bx = bd/2;
+  //if (by < bd/2) bx = bd/2;
 
   if (lives <= 0) {
     mode = GAMEOVER;
@@ -185,27 +198,28 @@ void game () {
     vx = 1.1 * vx;
     vy = 1.1 * vy;
   }
-  
-  
+
+
   if (dist(200, 100, bx, by)< 85 + bd/2) {
     vx = (bx - 200)/5;
     vy = (by - 100)/5;
     score = score + 1000;
   }
-  
+
   if (dist(450, 60, bx, by)< 50 + bd/2 && tptimer == 0) {
     bx = 25;
     by = 680;
     tptimer = 300;
   }
-  
-   if (dist(25, 680, bx, by)< 50 + bd/2 && tptimer == 0) {
+
+  if (dist(25, 680, bx, by)< 50 + bd/2 && tptimer == 0) {
     bx = 450;
     by = 60;
     tptimer = 300;
   }
-
-  println(score);
+  
+  tint(255, 200);
+  image(vhs, width/2, height/2); 
 }
 
 

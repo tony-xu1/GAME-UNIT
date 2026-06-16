@@ -19,6 +19,8 @@ final int WIN = 4;
 
 PImage pinball;
 PImage spindash;
+PImage vhs;
+PImage sadSonic;
 PFont arcade, sega;
 
 //ball and paddle
@@ -34,6 +36,7 @@ boolean clicked;
 boolean leftkey, rightkey;
 
 int tptimer = 300;
+int highScore;
 
 int[] cbumperx = new int[5];
 int[] cbumpery = new int [5];
@@ -58,7 +61,12 @@ void setup() {
 
   spindash = loadImage("spindash.png");
   spindash.resize(50, 50);
-
+  
+  vhs = loadImage("vhs.png");
+  vhs.resize(1333, 1000);
+  
+  sadSonic = loadImage("sadSonic.png");
+  sadSonic.resize(85, 120);
 
   myCloud = new cloud[n];
   int i = 0;
@@ -132,8 +140,6 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameover();
-  } else if (mode == WIN) {
-    win();
   } else {
     println ("Error : Mode =" + mode);
   }

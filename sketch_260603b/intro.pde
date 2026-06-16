@@ -2,6 +2,7 @@ color start = #0060A8;
 
 void intro () {
 
+  tint(255, 255);
   image(pinball, width/2, height/2);
 
   int i = 0;
@@ -35,6 +36,9 @@ void intro () {
   } else {
     start = #0060A8;
   }
+
+  tint(255, 128);
+  image(vhs, width/2, height/2);
 }
 
 void introClicks() {
