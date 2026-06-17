@@ -2,6 +2,11 @@ color start = #0060A8;
 
 void intro () {
 
+  intro.play();
+  game.pause();
+  gameover.pause();
+  
+
   tint(255, 255);
   image(pinball, width/2, height/2);
 
@@ -38,7 +43,7 @@ void intro () {
   }
 
   tint(255, 128);
-  image(vhs, width/2, height/2);
+  image(crt, width/2, height/2);
 }
 
 void introClicks() {

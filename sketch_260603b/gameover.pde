@@ -2,6 +2,15 @@ color again = 255;
 color exit = 255;
 
 void gameover() {
+  
+  intro.pause();
+  game.pause();
+  gameover.play();
+  
+ if (gameover.position() >= gameover.length()){
+    gameover.rewind();
+    gameover.play();
+  } 
 
 
   fill(#981919, 10);
@@ -36,6 +45,9 @@ void gameover() {
   } else {
     exit = 255;
   }
+
+  tint(255, 30);
+  image(crt, width/2, height/2);
 }
 
 void gameoverClicks() {

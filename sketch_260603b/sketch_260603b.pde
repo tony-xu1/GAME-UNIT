@@ -19,7 +19,7 @@ final int WIN = 4;
 
 PImage pinball;
 PImage spindash;
-PImage vhs;
+PImage crt;
 PImage sadSonic;
 PFont arcade, sega;
 
@@ -32,6 +32,8 @@ int lives = 5;
 int score = 0;
 boolean G;
 boolean clicked;
+
+int time;
 
 boolean leftkey, rightkey;
 
@@ -51,6 +53,10 @@ PVector[] rslope = new PVector[3];
 cloud[] myCloud;
 int n = 10;
 
+Minim minim;
+AudioPlayer intro, game, hit, gameover;
+
+
 void setup() {
   textAlign(CENTER, CENTER);
   imageMode(CENTER);
@@ -61,10 +67,10 @@ void setup() {
 
   spindash = loadImage("spindash.png");
   spindash.resize(50, 50);
-  
-  vhs = loadImage("vhs.png");
-  vhs.resize(1333, 1000);
-  
+
+  crt = loadImage("vhs.png");
+  crt.resize(1333, 1000);
+
   sadSonic = loadImage("sadSonic.png");
   sadSonic.resize(85, 120);
 
@@ -74,6 +80,12 @@ void setup() {
     myCloud[i] = new cloud();
     i++;
   }
+
+  minim = new Minim(this);
+  intro = minim.loadFile("intro.mp3");
+  game = minim.loadFile("toxicCaves.mp3");
+  hit = minim.loadFile("hit.mp3");
+  gameover = minim.loadFile("gameover.mp3");
 
   lslope[0] = new PVector(0, 750);
   lslope[1] = new PVector(250, 850);
@@ -123,7 +135,7 @@ void setup() {
   cbumperx[2] = 550;
   cbumperx[3] = 100;
   cbumperx[4] = 480;
-  
+
   cbumpery[0] = 550;
   cbumpery[1] = 650;
   cbumpery[2] = 500;

@@ -1,7 +1,17 @@
-color left;
-color right;
+color Pause = 255;
+color pause = 0;
+color text= 255;
 
 void game () {
+
+  intro.pause();
+  game.play();
+  gameover.pause();
+
+  if (game.position() >= game.length()) {
+    game.rewind();
+    game.play();
+  }
 
   fill(#090831);
   rect(0, 0, 2000, 1000);
@@ -80,8 +90,38 @@ void game () {
   textSize(70);
   textAlign(CENTER, CENTER);
 
+  fill(Pause);
+  stroke(pause);
+  strokeWeight(7);
+  square(620, 920, 70);
+  line(645, 940, 645, 970);
+  line(665, 940, 665, 970);
+  noStroke();
+  
+  fill(0);
+  rectMode(CENTER);
+  rect(width/2, 930, 200, 100);
+  rectMode(CORNER);
+  
+  time = time + 1;
+  
+  if (time % 10 == 0)
+  
+  textSize(20);
+  fill(text);
+  if (clicked == false){
+    text("hold ball to shoot!", width/2, 930);
+  } else if (score >= highScore){
+   text("new highscore!", width/2, 930); 
+  }
+  textSize(70);
+
   bx = bx + vx;
   by = by + vy;
+
+  if (score > highScore) {
+    highScore = score;
+  }
 
   if (G == false) {
     gravity = 0;
@@ -136,12 +176,16 @@ void game () {
     vx = (bx - width/2)/6;
     vy = (by - 400)/6;
     score = score + 500;
+    hit.play();
+    hit.rewind();
   }
 
 
   if (dist(width, 0, bx, by) < 100 + bd/2) {
     vx = (bx - width)/7;
     vy = (by - 0)/7;
+    hit.play();
+    hit.rewind();
   }
 
   if (rightkey == true && ry > 830) {
@@ -166,22 +210,30 @@ void game () {
     vx = (bx - lx)/3;
     vy = (by - ly)/3;
     score = score + 1;
+    hit.play();
+    hit.rewind();
   }
 
   if (dist(rx, ry, bx, by)< rd/2 + bd/2) {
     vx = (bx - rx)/3;
     vy = (by - ry)/3;
     score = score + 1;
+    hit.play();
+    hit.rewind();
   }
 
   if (hit1 == true) {
     vx = 10;
     vy = -7;
+    hit.play();
+    hit.rewind();
   }
 
   if (hit2 == true) {
     vx = -10;
     vy = -7;
+    hit.play();
+    hit.rewind();
   }
 
   if (by + bd/2 > 0.4*bx + 750 && hit1 == true) {
@@ -197,13 +249,17 @@ void game () {
   if (dist(120, 350, bx, by) < 50 + bd/2) {
     vx = 1.1 * vx;
     vy = 1.1 * vy;
+    hit.play();
+    hit.rewind();
   }
 
 
   if (dist(200, 100, bx, by)< 85 + bd/2) {
-    vx = (bx - 200)/5;
-    vy = (by - 100)/5;
+    vx = (bx - 200)/6;
+    vy = (by - 100)/6;
     score = score + 1000;
+    hit.play();
+    hit.rewind();
   }
 
   if (dist(450, 60, bx, by)< 50 + bd/2 && tptimer == 0) {
@@ -217,9 +273,17 @@ void game () {
     by = 60;
     tptimer = 300;
   }
-  
+
+  if (mouseX > 620 && mouseX < 690 && mouseY > 920 && mouseY < 990) {
+    pause = 255;
+    Pause = 0;
+  } else {
+    pause = 0;
+    Pause = 255;
+  }
+
   tint(255, 200);
-  image(vhs, width/2, height/2); 
+  image(crt, width/2, height/2);
 }
 
 
@@ -308,9 +372,6 @@ boolean pointCircle(float px, float py, float bx, float by, float bd) {
 
 
 
-
-
-
 void gameClicks() {
 
   if (dist(mouseX, mouseY, bx, by) < bd/2 && clicked == false) {
@@ -318,6 +379,10 @@ void gameClicks() {
     clicked = true;
     vx = random(-1.5, 1.5);
     vy = -1 * (40 - timer);
+  }
+
+  if (mouseX > 620 && mouseX < 690 && mouseY > 920 && mouseY < 990) {
+    mode = PAUSE;
   }
 }
 
@@ -330,5 +395,7 @@ void manageBricks(int b) {
     vx = (bx - cbumperx[b])/5;
     vy = (by - cbumpery[b])/5;
     score = score + 10;
+    hit.play();
+    hit.rewind();
   }
 }
