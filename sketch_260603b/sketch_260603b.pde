@@ -40,6 +40,8 @@ boolean leftkey, rightkey;
 int tptimer = 300;
 int highScore;
 
+int son, shn, tn, yn;
+
 int[] cbumperx = new int[5];
 int[] cbumpery = new int [5];
 int cbumperd;
@@ -54,7 +56,7 @@ cloud[] myCloud;
 int n = 10;
 
 Minim minim;
-AudioPlayer intro, game, hit, gameover;
+AudioPlayer intro, game, hit, gameover, newHighScore;
 
 
 void setup() {
@@ -86,6 +88,7 @@ void setup() {
   game = minim.loadFile("toxicCaves.mp3");
   hit = minim.loadFile("hit.mp3");
   gameover = minim.loadFile("gameover.mp3");
+  newHighScore = minim.loadFile("highScore.mp3");
 
   lslope[0] = new PVector(0, 750);
   lslope[1] = new PVector(250, 850);
@@ -98,7 +101,12 @@ void setup() {
   arcade = createFont ("ARCADECLASSIC.TTF", 100);
 
   sega = createFont ("SEGA.TTF", 100);
-
+  
+  
+  son = 1;
+  shn = 2;
+  tn = 3;
+  yn = 4;
 
   bx = 635;
   by = 740;

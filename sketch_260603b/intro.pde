@@ -5,7 +5,8 @@ void intro () {
   intro.play();
   game.pause();
   gameover.pause();
-  
+  newHighScore.pause();
+
 
   tint(255, 255);
   image(pinball, width/2, height/2);

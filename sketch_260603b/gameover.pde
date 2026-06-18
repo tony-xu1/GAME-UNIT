@@ -2,15 +2,16 @@ color again = 255;
 color exit = 255;
 
 void gameover() {
-  
+
   intro.pause();
   game.pause();
   gameover.play();
-  
- if (gameover.position() >= gameover.length()){
+  newHighScore.pause();
+
+  if (gameover.position() >= gameover.length()) {
     gameover.rewind();
     gameover.play();
-  } 
+  }
 
 
   fill(#981919, 10);
@@ -70,6 +71,7 @@ void gameoverClicks() {
     clicked = false;
     timer = 40;
     tptimer = 300;
+    newHighScore.rewind();
   }
 
 
@@ -92,5 +94,6 @@ void gameoverClicks() {
     clicked = false;
     timer = 40;
     tptimer = 300;
+    newHighScore.rewind();
   }
 }

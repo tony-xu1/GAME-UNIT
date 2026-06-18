@@ -48,7 +48,7 @@ void game () {
   fill(255);
   textSize(20);
   text("TP " + tptimer, 450, 60);
-  text("TP " + tptimer, 25, 680);
+  text("TP " + tptimer, 35, 680);
   textSize(70);
 
   fill(255, 0);
@@ -97,30 +97,60 @@ void game () {
   line(645, 940, 645, 970);
   line(665, 940, 665, 970);
   noStroke();
-  
+
   fill(0);
   rectMode(CENTER);
   rect(width/2, 930, 200, 100);
   rectMode(CORNER);
-  
+
   time = time + 1;
-  
-  if (time % 10 == 0)
-  
+
+  if (time % 60 <= 30) {
+    text = 0;
+  } else {
+    text = 255;
+  }
+
   textSize(20);
   fill(text);
-  if (clicked == false){
+  if (clicked == false) {
     text("hold ball to shoot!", width/2, 930);
-  } else if (score >= highScore){
-   text("new highscore!", width/2, 930); 
+  } else if (score >= highScore) {
+    text("new highscore!", width/2, 930);
+  } else {
+    textAlign(LEFT);
+    text(son + "  SONIC  100000", 270, 900 + 20*(son-1));
+    text(shn + "  SHADOW  99999", 270, 900 + 20*(shn-1));
+    text(tn + "  TAILS 70000", 270, 900 + 20*(tn-1));
+    text(yn + "  YOU  " + highScore, 270, 900 + 20*(yn-1));
+    textAlign(CENTER, CENTER);
   }
   textSize(70);
+
+  if (highScore >= 70000 && highScore <= 99999) {
+    yn = 3;
+    tn = 4;
+  }
+
+  if (highScore >= 99999 && highScore <= 100000) {
+    yn = 2;
+    shn = 3;
+    tn = 4;
+  }
+
+  if (highScore >= 100000) {
+    yn = 1;
+    son = 2;
+    shn = 3;
+    tn = 4;
+  }
 
   bx = bx + vx;
   by = by + vy;
 
   if (score > highScore) {
     highScore = score;
+    newHighScore.play();
   }
 
   if (G == false) {
