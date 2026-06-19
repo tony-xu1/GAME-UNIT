@@ -71,6 +71,8 @@ void gameoverClicks() {
     clicked = false;
     timer = 40;
     tptimer = 300;
+    texttimer = 0;
+    game.rewind();
     newHighScore.rewind();
   }
 
@@ -94,6 +96,8 @@ void gameoverClicks() {
     clicked = false;
     timer = 40;
     tptimer = 300;
+    texttimer = 0;
+    intro.rewind();
     newHighScore.rewind();
   }
 }

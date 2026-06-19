@@ -60,6 +60,8 @@ void pauseClicks() {
     tptimer = 300;
     score = 0;
     lives = 5;
+    texttimer = 0;
+    intro.rewind();
     newHighScore.rewind();
   }
 }

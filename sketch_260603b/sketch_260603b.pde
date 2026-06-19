@@ -34,6 +34,7 @@ boolean G;
 boolean clicked;
 
 int time;
+int texttimer;
 
 boolean leftkey, rightkey;
 

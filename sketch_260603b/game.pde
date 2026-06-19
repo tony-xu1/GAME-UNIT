@@ -115,8 +115,9 @@ void game () {
   fill(text);
   if (clicked == false) {
     text("hold ball to shoot!", width/2, 930);
-  } else if (score >= highScore) {
+  } else if (score >= highScore && highScore != 0 && texttimer < 100) {
     text("new highscore!", width/2, 930);
+    texttimer = texttimer + 1;
   } else {
     textAlign(LEFT);
     text(son + "  SONIC  100000", 270, 900 + 20*(son-1));

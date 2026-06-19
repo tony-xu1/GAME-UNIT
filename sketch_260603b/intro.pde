@@ -51,5 +51,6 @@ void introClicks() {
 
   if (mouseX > 250 && mouseX < 440 && mouseY > 580 && mouseY < 620) {
     mode = GAME;
+    game.rewind();
   }
 }
